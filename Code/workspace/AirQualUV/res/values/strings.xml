@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AirQualUV</string>
+    <string name="zipHint">Enter zip code for air quality lookup here</string>
+    <string name="button">Lookup Air Quality by Zip Code</string>
+    <string name="airQualBG">Air Quality and UV</string>
+    <string name="resultHint">Today\'s air quality will appear here after you click below</string>
+    <string name="clothing">Garment Protection</string>
+
+</resources>
