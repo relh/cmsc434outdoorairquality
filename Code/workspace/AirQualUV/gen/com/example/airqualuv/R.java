@@ -52,16 +52,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int uv_mod=0x7f02001b;
     }
     public static final class id {
-        public static final int clothingButton=0x7f07000a;
-        public static final int fullscreen_content=0x7f070005;
-        public static final int fullscreen_content_controls=0x7f070006;
+        public static final int ImageView01=0x7f07000c;
+        public static final int ImageView02=0x7f07000d;
+        public static final int ag_results=0x7f070008;
+        public static final int aq_results=0x7f07000b;
+        public static final int clothingButton=0x7f070009;
+        public static final int fullscreen_content_controls=0x7f070005;
         public static final int imageView1=0x7f070000;
         public static final int imageView2=0x7f070001;
         public static final int imageView3=0x7f070002;
         public static final int imageView4=0x7f070003;
         public static final int imageView5=0x7f070004;
-        public static final int lookupButton=0x7f070009;
-        public static final int results=0x7f070008;
+        public static final int lookupButton=0x7f070006;
+        public static final int uv_results=0x7f07000a;
         public static final int zipText=0x7f070007;
     }
     public static final class layout {
@@ -69,11 +72,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_quality_get=0x7f030001;
     }
     public static final class string {
+        public static final int ag=0x7f050007;
         public static final int airQualBG=0x7f050003;
         public static final int app_name=0x7f050000;
+        public static final int aq=0x7f050006;
         public static final int button=0x7f050002;
         public static final int clothing=0x7f050005;
         public static final int resultHint=0x7f050004;
+        public static final int uv=0x7f050008;
         public static final int zipHint=0x7f050001;
     }
     public static final class style {

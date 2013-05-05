@@ -11,33 +11,20 @@
          TextureView, etc.
     -->
 
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center" 
-        android:keepScreenOn="true"
-        android:text="@string/airQualBG"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
-
     <!--
          This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows.
     -->
 
-    <FrameLayout
+   <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true" >
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
             style="?buttonBarStyle"
             android:layout_width="165dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -45,58 +32,101 @@
             android:orientation="horizontal"
             android:textColor="#000000"
             tools:ignore="UselessParent" >
-
         </LinearLayout>
+
+        <Button
+            android:id="@+id/lookupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/zipText"
+            android:layout_toRightOf="@+id/fullscreen_content_controls"
+            android:text="Lookup AirQualityUV" />
 
         <EditText
             android:id="@+id/zipText"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/fullscreen_content_controls"
+            android:layout_alignRight="@+id/fullscreen_content_controls"
+            android:layout_below="@+id/fullscreen_content_controls"
             android:background="@color/black_overlay"
-            android:textColor="#FFFFFF"
             android:ems="10"
-            android:hint="@string/zipHint" />
+            android:hint="@string/zipHint"
+            android:textColor="#FFFFFF" />
+
+       <EditText
+            android:id="@+id/ag_results"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_alignLeft="@+id/zipText"
+            android:layout_below="@+id/zipText"
+            android:layout_marginTop="16dp"
+            android:layout_toLeftOf="@+id/clothingButton"
+            android:background="@color/black_overlay"
+            android:ems="10"
+            android:hint="@string/resultHint"
+            android:inputType="textMultiLine"
+            android:textColor="#FFFFFF" >
+        </EditText>
+        
+        <EditText
+            android:id="@+id/uv_results"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_alignBaseline="@+id/ag_results"
+            android:layout_alignBottom="@+id/ag_results"
+            android:layout_alignRight="@+id/zipText"
+            android:background="@color/black_overlay"
+            android:ems="10"
+            android:hint="@string/resultHint"
+            android:inputType="textMultiLine"
+            android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/results"
-            android:layout_width="250dp"
+            android:id="@+id/aq_results"
+            android:layout_width="50dp"
             android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="100dp"
+            android:layout_alignBaseline="@+id/uv_results"
+            android:layout_alignBottom="@+id/uv_results"
+            android:layout_toRightOf="@+id/clothingButton"
             android:background="@color/black_overlay"
-            android:textColor="#FFFFFF"
             android:ems="10"
+            android:hint="@string/resultHint"
             android:inputType="textMultiLine"
-            android:hint="@string/resultHint" />
+            android:textColor="#FFFFFF" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/imageView1"
+            android:src="@string/ag" />
 
-            <Button
-                android:id="@+id/lookupButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="20dp"
-                android:text="Lookup AirQualityUV" />
+        <ImageView
+            android:id="@+id/ImageView02"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/ImageView01"
+            android:src="@string/aq" />
 
-            <Button
-                android:id="@+id/clothingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/lookupButton"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="22dp"
-                android:text="Clothing Options" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@string/uv" />
 
-        </RelativeLayout>
+        <Button
+            android:id="@+id/clothingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Clothing Options" />
 
-    </FrameLayout>
+    </RelativeLayout>
 
 </FrameLayout>
