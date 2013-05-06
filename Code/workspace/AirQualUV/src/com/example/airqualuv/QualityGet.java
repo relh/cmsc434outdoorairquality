@@ -30,19 +30,25 @@ public class QualityGet extends Activity {
 		setContentView(R.layout.activity_quality_get);
 
 		//button listeners
-		findViewById(R.id.lookupButton).setOnClickListener(textChangeListener);
+		findViewById(R.id.lookupButton).setOnClickListener(clickedListener);
 		findViewById(R.id.clothingButton).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(v.getContext(), Clothing.class);
 				startActivityForResult(intent, 0);
 			}
 		});
+		findViewById(R.id.exposureButton).setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), ExposurePlot.class);
+				startActivityForResult(intent, 0);
+			}
+		});
 		
 	}
 
-	View.OnClickListener textChangeListener = new View.OnClickListener() {
+	View.OnClickListener clickedListener = new View.OnClickListener() {
 		@Override
-		public void onClick(final View view) {
+		public void onClick(View view) {
 
 			final TextView aqBox = (TextView) findViewById(R.id.aq_results);
 			final TextView agBox = (TextView) findViewById(R.id.ag_results);
@@ -92,11 +98,7 @@ public class QualityGet extends Activity {
 					}
 
 					aqBox.setText(tokens[0]);
-					
-					
 					agBox.setText(tokens[1]);
-					
-					
 					uvBox.setText(tokens[2]);
 			        
 					
@@ -120,21 +122,18 @@ public class QualityGet extends Activity {
 			HttpGet request = new HttpGet(
 					"http://www.airnow.gov/?action=airnow.local_city&zipcode="
 							+ zipT.getText().toString().replaceAll("\\s",""));
-
 			String result = pullFromWebsite(client, request, ".*&nbsp;</td>.*", 45, 47);
 
 			//allergy get
 			request = new HttpGet(
 					"http://www.wunderground.com/DisplayPollen.asp?Zipcode="
 							+ zipT.getText().toString().replaceAll("\\s",""));
-
 			result += " " + pullFromWebsite(client, request, ".*<div class=\"ce.*", 50, 54);
 
 			//uv get
 			request = new HttpGet(
 					"http://oaspub.epa.gov/enviro/uv_search?zipcode="
 							+ zipT.getText().toString().replaceAll("\\s",""));
-
 			result += " " + pullFromWebsite(client, request, ".*alt=\"UVI.*", 72, 74);
 			
 			result = result.replace("\"", "");

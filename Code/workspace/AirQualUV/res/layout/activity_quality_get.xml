@@ -16,7 +16,7 @@
          android:fitsSystemWindows.
     -->
 
-   <RelativeLayout
+ <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -53,15 +53,14 @@
             android:ems="10"
             android:hint="@string/zipHint"
             android:textColor="#FFFFFF" />
-
-       <EditText
-            android:id="@+id/ag_results"
+        
+        <EditText
+            android:id="@+id/aq_results"
             android:layout_width="50dp"
             android:layout_height="60dp"
+            android:layout_alignBaseline="@+id/ag_results"
+            android:layout_alignBottom="@+id/ag_results"
             android:layout_alignLeft="@+id/zipText"
-            android:layout_below="@+id/zipText"
-            android:layout_marginTop="16dp"
-            android:layout_toLeftOf="@+id/clothingButton"
             android:background="@color/black_overlay"
             android:ems="10"
             android:hint="@string/resultHint"
@@ -70,12 +69,12 @@
         </EditText>
         
         <EditText
-            android:id="@+id/uv_results"
+            android:id="@+id/ag_results"
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:layout_alignBaseline="@+id/ag_results"
-            android:layout_alignBottom="@+id/ag_results"
-            android:layout_alignRight="@+id/zipText"
+            android:layout_below="@+id/zipText"
+            android:layout_marginTop="24dp"
+            android:layout_toLeftOf="@+id/lookupButton"
             android:background="@color/black_overlay"
             android:ems="10"
             android:hint="@string/resultHint"
@@ -83,25 +82,25 @@
             android:textColor="#FFFFFF" />
 
         <EditText
-            android:id="@+id/aq_results"
+            android:id="@+id/uv_results"
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:layout_alignBaseline="@+id/uv_results"
-            android:layout_alignBottom="@+id/uv_results"
-            android:layout_toRightOf="@+id/clothingButton"
+            android:layout_alignBaseline="@+id/ag_results"
+            android:layout_alignBottom="@+id/ag_results"
+            android:layout_alignRight="@+id/exposureButton"
             android:background="@color/black_overlay"
             android:ems="10"
             android:hint="@string/resultHint"
             android:inputType="textMultiLine"
             android:textColor="#FFFFFF" />
-
+        
         <ImageView
-            android:id="@+id/ImageView3"
+            android:id="@+id/ImageView1"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/ImageView2"
-            android:src="@string/uv" />
+            android:layout_centerVertical="true"
+            android:src="@string/aq" />
         
         <ImageView
             android:id="@+id/ImageView2"
@@ -110,25 +109,31 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/ImageView1"
             android:src="@string/ag" />
-
-        <ImageView
-            android:id="@+id/ImageView1"
+        
+       <ImageView
+            android:id="@+id/ImageView3"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/ag_results"
-            android:layout_marginTop="46dp"
-            android:src="@string/aq" />
+            android:layout_below="@+id/ImageView2"
+            android:src="@string/uv" />
         
-        
+        <Button
+            android:id="@+id/exposureButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ImageView3"
+            android:layout_toRightOf="@+id/zipText"
+            android:text="View Exposure" />
+
         <Button
             android:id="@+id/clothingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@+id/zipText"
+            android:layout_below="@+id/ImageView3"
             android:text="Clothing Options" />
-
+        
     </RelativeLayout>
 
 </FrameLayout>
