@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name="Clothing" android:theme="@style/FullscreenTheme" android:label="@string/clothing" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity android:name="ExposurePlot" android:theme="@style/FullscreenTheme" android:label="@string/exposure" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
     </application>
 
 </manifest>

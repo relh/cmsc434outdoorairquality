@@ -63,45 +63,53 @@ public class QualityGet extends Activity {
 			    {
 			       
 					String [] tokens = result.split(" ");
+
+					aqBox.setText(tokens[0]);
+					agBox.setText(tokens[1]);
+					uvBox.setText(tokens[2]);      
+					
 					//choosing low, moderate, and high for each feature
 					//aq choosing
-					int aqVal = Integer.parseInt(tokens[0]);
 					ImageView aqView = (ImageView)findViewById(R.id.ImageView1);
+					if (tokens[0].contains("invalid")) {
+						aqView.setImageResource(R.drawable.invalid);
+					} else {
+					int aqVal = Integer.parseInt(tokens[0]);
 					if (aqVal < 50) {
 				        aqView.setImageResource(R.drawable.aq_low);
 					} else if (aqVal < 100) {
 				        aqView.setImageResource(R.drawable.aq_mod);
 					} else {
 				        aqView.setImageResource(R.drawable.aq_high);
-					}
+					} }
 					
 					//ag choosing
-					float agVal = Float.parseFloat(tokens[1]);
 					ImageView agView = (ImageView)findViewById(R.id.ImageView2);
+					if (tokens[1].contains("invalid")) {
+						agView.setImageResource(R.drawable.invalid);
+					} else {
+					float agVal = Float.parseFloat(tokens[1]);
 					if (agVal < 5) {
 				        agView.setImageResource(R.drawable.ag_low);
 					} else if (agVal < 8) {
 				        agView.setImageResource(R.drawable.ag_mod);
 					} else {
 				        agView.setImageResource(R.drawable.ag_high);
-					}
+					} }
 					
 					//uv choosing
-					int uvVal = Integer.parseInt(tokens[2]);
 					ImageView uvView = (ImageView)findViewById(R.id.ImageView3);
+					if (tokens[2].contains("invalid")) {
+						uvView.setImageResource(R.drawable.invalid);
+					} else {
+					int uvVal = Integer.parseInt(tokens[2]);
 					if (uvVal < 3) {
 				        uvView.setImageResource(R.drawable.uv_low);
 					} else if (uvVal < 6) {
 				        uvView.setImageResource(R.drawable.uv_mod);
 					} else {
 				        uvView.setImageResource(R.drawable.uv_high);
-					}
-
-					aqBox.setText(tokens[0]);
-					agBox.setText(tokens[1]);
-					uvBox.setText(tokens[2]);
-			        
-					
+					} }					
 			    }
 				
 			}.execute("");
@@ -160,11 +168,11 @@ public class QualityGet extends Activity {
 				}
 				in.close();
 			} catch (IOException E) {
-				result = "Invalid zip code";
+				result = "invalid";
 			}
 
 			if (result.equals("")) {
-				result = "Invalid zip code";
+				result = "invalid";
 			}
 			
 			return result;

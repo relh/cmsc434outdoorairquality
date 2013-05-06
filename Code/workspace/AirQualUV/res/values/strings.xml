@@ -10,5 +10,6 @@
     <string name="aq">@drawable/aq_mod</string>
     <string name="ag">@drawable/ag_mod</string>
     <string name="uv">@drawable/uv_mod</string>
+    <string name="exposure">ExposureGraph</string>
 
 </resources>

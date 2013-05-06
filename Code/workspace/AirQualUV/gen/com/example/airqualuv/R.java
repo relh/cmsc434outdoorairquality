@@ -42,14 +42,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int grabbackground=0x7f020011;
         public static final int hat=0x7f020012;
         public static final int ic_launcher=0x7f020013;
-        public static final int jacket=0x7f020014;
-        public static final int long_pants=0x7f020015;
-        public static final int scarf=0x7f020016;
-        public static final int shorts=0x7f020017;
-        public static final int tshirt=0x7f020018;
-        public static final int uv_high=0x7f020019;
-        public static final int uv_low=0x7f02001a;
-        public static final int uv_mod=0x7f02001b;
+        public static final int invalid=0x7f020014;
+        public static final int jacket=0x7f020015;
+        public static final int long_pants=0x7f020016;
+        public static final int scarf=0x7f020017;
+        public static final int shorts=0x7f020018;
+        public static final int tshirt=0x7f020019;
+        public static final int uv_high=0x7f02001a;
+        public static final int uv_low=0x7f02001b;
+        public static final int uv_mod=0x7f02001c;
     }
     public static final class id {
         public static final int ImageView1=0x7f07000d;
@@ -82,6 +83,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int aq=0x7f050006;
         public static final int button=0x7f050002;
         public static final int clothing=0x7f050005;
+        public static final int exposure=0x7f050009;
         public static final int resultHint=0x7f050004;
         public static final int uv=0x7f050008;
         public static final int zipHint=0x7f050001;
