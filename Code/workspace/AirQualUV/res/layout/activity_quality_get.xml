@@ -96,29 +96,31 @@
             android:textColor="#FFFFFF" />
 
         <ImageView
-            android:id="@+id/ImageView01"
+            android:id="@+id/ImageView3"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/imageView1"
+            android:layout_below="@+id/ImageView2"
+            android:src="@string/uv" />
+        
+        <ImageView
+            android:id="@+id/ImageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/ImageView1"
             android:src="@string/ag" />
 
         <ImageView
-            android:id="@+id/ImageView02"
+            android:id="@+id/ImageView1"
             android:layout_width="wrap_content"
             android:layout_height="75dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/ImageView01"
+            android:layout_below="@+id/ag_results"
+            android:layout_marginTop="46dp"
             android:src="@string/aq" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@string/uv" />
-
+        
+        
         <Button
             android:id="@+id/clothingButton"
             android:layout_width="wrap_content"

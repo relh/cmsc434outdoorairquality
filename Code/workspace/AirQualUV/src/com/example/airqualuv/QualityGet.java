@@ -15,11 +15,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.EditText;
 
-//Richard Higgins, code snippets cobbled from android forums.
-//Feb 12th, 2013
+//Richard Higgins
+//May 6th, 2013
 
 public class QualityGet extends Activity {
 	@Override
@@ -28,41 +29,79 @@ public class QualityGet extends Activity {
 
 		setContentView(R.layout.activity_quality_get);
 
-		// Button Listener
+		//button listeners
 		findViewById(R.id.lookupButton).setOnClickListener(textChangeListener);
 		findViewById(R.id.clothingButton).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(v.getContext(), Clothing.class);
 				startActivityForResult(intent, 0);
-				
 			}
 		});
 		
 	}
 
-	/**
-	 * Touch listener to use for in-layout UI controls to delay hiding the
-	 * system UI. This is to prevent the jarring behavior of controls going away
-	 * while interacting with activity UI.
-	 */
 	View.OnClickListener textChangeListener = new View.OnClickListener() {
 		@Override
-		public void onClick(View view) {
+		public void onClick(final View view) {
 
-			TextView aqBox = (TextView) findViewById(R.id.aq_results);
-			TextView agBox = (TextView) findViewById(R.id.ag_results);
-			TextView uvBox = (TextView) findViewById(R.id.uv_results);
+			final TextView aqBox = (TextView) findViewById(R.id.aq_results);
+			final TextView agBox = (TextView) findViewById(R.id.ag_results);
+			final TextView uvBox = (TextView) findViewById(R.id.uv_results);
 			aqBox.setText("Loading...");
 			agBox.setText("Loading...");
 			uvBox.setText("Loading...");
 			
 			new WebTrawl()
 			{
-			    @Override public void onPostExecute(String result)
+				@Override public void onPostExecute(String result)
 			    {
 			       
+					String [] tokens = result.split(" ");
+					//choosing low, moderate, and high for each feature
+					//aq choosing
+					int aqVal = Integer.parseInt(tokens[0]);
+					ImageView aqView = (ImageView)findViewById(R.id.ImageView1);
+					if (aqVal < 50) {
+				        aqView.setImageResource(R.drawable.aq_low);
+					} else if (aqVal < 100) {
+				        aqView.setImageResource(R.drawable.aq_mod);
+					} else {
+				        aqView.setImageResource(R.drawable.aq_high);
+					}
+					
+					//ag choosing
+					float agVal = Float.parseFloat(tokens[1]);
+					ImageView agView = (ImageView)findViewById(R.id.ImageView2);
+					if (agVal < 5) {
+				        agView.setImageResource(R.drawable.ag_low);
+					} else if (agVal < 8) {
+				        agView.setImageResource(R.drawable.ag_mod);
+					} else {
+				        agView.setImageResource(R.drawable.ag_high);
+					}
+					
+					//uv choosing
+					int uvVal = Integer.parseInt(tokens[2]);
+					ImageView uvView = (ImageView)findViewById(R.id.ImageView3);
+					if (uvVal < 3) {
+				        uvView.setImageResource(R.drawable.uv_low);
+					} else if (uvVal < 6) {
+				        uvView.setImageResource(R.drawable.uv_mod);
+					} else {
+				        uvView.setImageResource(R.drawable.uv_high);
+					}
+
+					aqBox.setText(tokens[0]);
+					
+					
+					agBox.setText(tokens[1]);
+					
+					
+					uvBox.setText(tokens[2]);
 			        
+					
 			    }
+				
 			}.execute("");
 		}
 
@@ -72,48 +111,51 @@ public class QualityGet extends Activity {
 
 		@Override
 		protected String doInBackground(String... params) {
+			//set-up
 			EditText zipT = (EditText) findViewById(R.id.zipText);
-			TextView aqBox = (TextView) findViewById(R.id.aq_results);
-			TextView agBox = (TextView) findViewById(R.id.ag_results);
-			TextView uvBox = (TextView) findViewById(R.id.uv_results);
-
 			HttpClient client = new DefaultHttpClient();
+			
+			//sequences delimited in result by a space
+			//air quality get
 			HttpGet request = new HttpGet(
 					"http://www.airnow.gov/?action=airnow.local_city&zipcode="
 							+ zipT.getText().toString().replaceAll("\\s",""));
 
-			String result = pullFromWebsite(client, request, ".*&nbsp;</td>.*");
-			aqBox.setText(result);
-			
-			/*request = new HttpGet(
+			String result = pullFromWebsite(client, request, ".*&nbsp;</td>.*", 45, 47);
+
+			//allergy get
+			request = new HttpGet(
+					"http://www.wunderground.com/DisplayPollen.asp?Zipcode="
+							+ zipT.getText().toString().replaceAll("\\s",""));
+
+			result += " " + pullFromWebsite(client, request, ".*<div class=\"ce.*", 50, 54);
+
+			//uv get
+			request = new HttpGet(
 					"http://oaspub.epa.gov/enviro/uv_search?zipcode="
 							+ zipT.getText().toString().replaceAll("\\s",""));
 
-			result = pullFromWebsite(client, request, ".*alt=\"UVI.*", 20, 21);
-			uvBox.setText(result);
-			*/
+			result += " " + pullFromWebsite(client, request, ".*alt=\"UVI.*", 72, 74);
+			
+			result = result.replace("\"", "");
+			
 			return result;
 		}
 		
-		private String pullFromWebsite(HttpClient client, HttpGet request, String htmlCatch) {
+		//gets the data from website source code
+		private String pullFromWebsite(HttpClient client, HttpGet request, String htmlCatch, int b, int e) {
 			String result = "";
 			
 			try {
 				HttpResponse response = client.execute(request);
-				
-				TextView aqBox = (TextView) findViewById(R.id.aq_results);
-				aqBox.setText("HIHIHI");
-				
 				InputStream in = response.getEntity().getContent();
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(in));
 				String line = null;
-				boolean firstFlag = true;
+				boolean firstFlag = true; //flag to show first line is the correct one
 				while ((line = reader.readLine()) != null && firstFlag) {
-					
 					if (line.matches(htmlCatch)) {
-						aqBox.setText(line);
-						result += line;
+						result += line.substring(b, e);
 						firstFlag = false;
 					}
 				}

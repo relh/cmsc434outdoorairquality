@@ -52,8 +52,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int uv_mod=0x7f02001b;
     }
     public static final class id {
-        public static final int ImageView01=0x7f07000c;
-        public static final int ImageView02=0x7f07000d;
+        public static final int ImageView1=0x7f07000e;
+        public static final int ImageView2=0x7f07000d;
+        public static final int ImageView3=0x7f07000c;
         public static final int ag_results=0x7f070008;
         public static final int aq_results=0x7f07000b;
         public static final int clothingButton=0x7f070009;
