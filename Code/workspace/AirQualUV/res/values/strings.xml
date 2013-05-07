@@ -7,9 +7,9 @@
     <string name="airQualBG">Air Quality and UV</string>
     <string name="resultHint">Today\'s air quality will appear here after you click below</string>
     <string name="clothing">Garment Protection</string>
-    <string name="aq">@drawable/aq_mod</string>
-    <string name="ag">@drawable/ag_mod</string>
-    <string name="uv">@drawable/uv_mod</string>
+    <string name="aq">@drawable/invalid</string>
+    <string name="ag">@drawable/invalid</string>
+    <string name="uv">@drawable/invalid</string>
     <string name="exposure">ExposureGraph</string>
 
 </resources>

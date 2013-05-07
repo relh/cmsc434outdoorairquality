@@ -10,6 +10,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -40,15 +42,37 @@ public class QualityGet extends Activity {
 		findViewById(R.id.exposureButton).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(v.getContext(), ExposurePlot.class);
+				intent.putExtra("aq",((EditText)findViewById(R.id.aq_results)).getText().toString());
+				intent.putExtra("ag",((EditText)findViewById(R.id.ag_results)).getText().toString());
+				intent.putExtra("uv",((EditText)findViewById(R.id.uv_results)).getText().toString());
 				startActivityForResult(intent, 0);
 			}
 		});
 		
 	}
+	
+	  public void createNotification(View view, String type) {
+		    // Prepare intent which is triggered if the
+		    // notification is selected
+//		    Intent intent = new Intent(this, NotificationReceiver.class);
+
+		    // Build notification
+		    // Actions are just fake
+		    Notification noti = new Notification.Builder(this)
+		        .setContentTitle(type +  " Warning")
+		        .setContentText("Dangerous levels of " + type).setSmallIcon(type.equals("AG") ? R.drawable.exp_ag_hev : type.equals("AQ") ? R.drawable.exp_aq_hev : R.drawable.exp_uv_hev).build();
+		        
+		    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		    // Hide the notification after its selected
+		    noti.flags |= Notification.FLAG_AUTO_CANCEL;
+
+		    notificationManager.notify(0, noti);
+
+		  }
 
 	View.OnClickListener clickedListener = new View.OnClickListener() {
 		@Override
-		public void onClick(View view) {
+		public void onClick(final View view) {
 
 			final TextView aqBox = (TextView) findViewById(R.id.aq_results);
 			final TextView agBox = (TextView) findViewById(R.id.ag_results);
@@ -81,6 +105,7 @@ public class QualityGet extends Activity {
 				        aqView.setImageResource(R.drawable.aq_mod);
 					} else {
 				        aqView.setImageResource(R.drawable.aq_high);
+						createNotification(view, "AQ");
 					} }
 					
 					//ag choosing
@@ -95,6 +120,7 @@ public class QualityGet extends Activity {
 				        agView.setImageResource(R.drawable.ag_mod);
 					} else {
 				        agView.setImageResource(R.drawable.ag_high);
+				        createNotification(view, "AG");
 					} }
 					
 					//uv choosing
@@ -109,6 +135,7 @@ public class QualityGet extends Activity {
 				        uvView.setImageResource(R.drawable.uv_mod);
 					} else {
 				        uvView.setImageResource(R.drawable.uv_high);
+				        createNotification(view, "UV");
 					} }					
 			    }
 				

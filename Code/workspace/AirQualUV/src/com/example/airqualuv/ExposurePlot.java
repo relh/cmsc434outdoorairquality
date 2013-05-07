@@ -6,6 +6,7 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.series.XYSeries;
 import com.androidplot.xy.*;
 import java.util.Arrays;
+import android.widget.EditText;
  
 /**
  * The simplest possible example of using AndroidPlot to plot some data.
@@ -24,33 +25,33 @@ public class ExposurePlot extends Activity
  
         // initialize our XYPlot reference:
         mySimpleXYPlot = (XYPlot) findViewById(R.id.mySimpleXYPlot);
- 
+        
+        // Get information from value boxes in QualityGet activity
+        Bundle extras = getIntent().getExtras();
+        String aq = null, ag = null, uv = null;
+        if (extras != null) {
+            aq = extras.getString("aq");
+            ag = extras.getString("ag");
+            uv = extras.getString("uv");
+        }
+        
         // Create a couple arrays of y-values to plot:
-        Number[] series1Numbers = {1, 8, 5, 2, 7, 4};
-        Number[] series2Numbers = {4, 6, 3, 8, 2, 10};
+        Number[] aqNumbers = {Integer.parseInt(aq),Integer.parseInt(uv)};
+        Number[] agNumbers = {Float.parseFloat(ag),Float.parseFloat(ag)};
+        Number[] uvNumbers = {Integer.parseInt(uv),Integer.parseInt(aq)};
  
         // Turn the above arrays into XYSeries':
-        XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(series1Numbers),          // SimpleXYSeries takes a List so turn our array into a List
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                "Series1");                             // Set the display title of the series
- 
-        // same as above
-        XYSeries series2 = new SimpleXYSeries(Arrays.asList(series2Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
- 
-        // Create a formatter to use for drawing a series using LineAndPointRenderer:
-        LineAndPointFormatter series1Format = new LineAndPointFormatter(
-                Color.rgb(0, 200, 0),                   // line color
-                Color.rgb(0, 100, 0),                   // point color
-                null);                                  // fill color (none)
- 
-        // add a new series' to the xyplot:
-        mySimpleXYPlot.addSeries(series1, series1Format);
- 
-        // same as above:
-        mySimpleXYPlot.addSeries(series2,
+        XYSeries series1 = new SimpleXYSeries(Arrays.asList(aqNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Air Quality");
+        XYSeries series2 = new SimpleXYSeries(Arrays.asList(agNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Allergen Levels");
+        XYSeries series3 = new SimpleXYSeries(Arrays.asList(uvNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Ultraviolet levels");
+        
+        mySimpleXYPlot.addSeries(series1,
                 new LineAndPointFormatter(Color.rgb(0, 0, 200), Color.rgb(0, 0, 100), null));
- 
+        mySimpleXYPlot.addSeries(series2,
+                new LineAndPointFormatter(Color.rgb(0, 200, 0), Color.rgb(0, 100, 0), null));
+        mySimpleXYPlot.addSeries(series3,
+                new LineAndPointFormatter(Color.rgb(200, 0, 0), Color.rgb(100, 0, 0), null));
+
         // reduce the number of range labels
         mySimpleXYPlot.setTicksPerRangeLabel(3);
  
