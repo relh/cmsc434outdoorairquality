@@ -6,6 +6,8 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.series.XYSeries;
 import com.androidplot.xy.*;
 import java.util.Arrays;
+
+import android.view.Window;
 import android.widget.EditText;
  
 /**
@@ -21,29 +23,43 @@ public class ExposurePlot extends Activity
     {
  
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
         setContentView(R.layout.activity_exposure);
  
         // initialize our XYPlot reference:
         mySimpleXYPlot = (XYPlot) findViewById(R.id.mySimpleXYPlot);
+        mySimpleXYPlot.setTitle("Exposure Tracking");
+        mySimpleXYPlot.setRangeLabel("Exposure");
+        mySimpleXYPlot.setDomainLabel("Time (Days)");
         
         // Get information from value boxes in QualityGet activity
         Bundle extras = getIntent().getExtras();
         String aq = null, ag = null, uv = null;
+        int uvMinus = 0;
         if (extras != null) {
-            aq = extras.getString("aq");
-            ag = extras.getString("ag");
-            uv = extras.getString("uv");
+    		String [] tokens = extras.getString("vals").split(" ");
+
+        	aq = tokens[0];
+            ag = tokens[1];
+            uv = tokens[2];
+            
+            uvMinus = extras.getInt("clothing");
         }
         
         // Create a couple arrays of y-values to plot:
-        Number[] aqNumbers = {Integer.parseInt(aq),Integer.parseInt(uv)};
-        Number[] agNumbers = {Float.parseFloat(ag),Float.parseFloat(ag)};
-        Number[] uvNumbers = {Integer.parseInt(uv),Integer.parseInt(aq)};
+        int aqVal = Integer.parseInt(aq)/10;
+        float agVal = Float.parseFloat(ag);
+        int uvVal = Integer.parseInt(uv);
+        
+        Number[] aqNumbers = {aqVal - 3, aqVal - 2, aqVal - 1, aqVal};
+        Number[] agNumbers = {agVal - 3, agVal - 2, agVal - 1, agVal};
+        Number[] uvNumbers = {uvVal - 3, uvVal - 2, uvVal - 1, uvVal-uvMinus};
  
         // Turn the above arrays into XYSeries':
         XYSeries series1 = new SimpleXYSeries(Arrays.asList(aqNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Air Quality");
-        XYSeries series2 = new SimpleXYSeries(Arrays.asList(agNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Allergen Levels");
-        XYSeries series3 = new SimpleXYSeries(Arrays.asList(uvNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Ultraviolet levels");
+        XYSeries series2 = new SimpleXYSeries(Arrays.asList(agNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Allergen");
+        XYSeries series3 = new SimpleXYSeries(Arrays.asList(uvNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Ultraviolet");
         
         mySimpleXYPlot.addSeries(series1,
                 new LineAndPointFormatter(Color.rgb(0, 0, 200), Color.rgb(0, 0, 100), null));

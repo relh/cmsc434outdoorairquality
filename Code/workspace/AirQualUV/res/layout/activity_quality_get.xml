@@ -1,139 +1,114 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context=".QualityGet" >
+    android:background="#999999" >
 
-    <!--
-         The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc.
-    -->
+         <Button
+             android:id="@+id/clothingButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentLeft="true"
+             android:layout_marginBottom="24dp"
+             android:layout_marginLeft="18dp"
+             android:background="#104BA9"
+             android:text="Clothing Options"
+             android:textColor="#FFFFFF" />
 
-    <!--
-         This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows.
-    -->
+         <Button
+             android:id="@+id/exposureButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBaseline="@+id/clothingButton"
+             android:layout_alignBottom="@+id/clothingButton"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="18dp"
+             android:background="#104BA9"
+             android:text="View Exposure"
+             android:textColor="#FFFFFF" />
 
- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+         <EditText
+             android:id="@+id/zipText"
+             android:layout_width="250dp"
+             android:layout_height="60dp"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentTop="true"
+             android:background="@color/black_overlay"
+             android:ems="10"
+             android:hint="@string/zipHint"
+             android:textColor="#FFFFFF"
+             android:textColorHint="#CCCCCC" >
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?buttonBarStyle"
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            android:textColor="#000000"
-            tools:ignore="UselessParent" >
-        </LinearLayout>
+         </EditText>
+         
+         <TextView
+             android:id="@+id/textView2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/zipText"
+             android:layout_centerHorizontal="true"
+             android:text="Loading..."
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/lookupButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/zipText"
-            android:layout_toRightOf="@+id/fullscreen_content_controls"
-            android:text="Lookup AirQualityUV" />
+         <ImageView
+             android:id="@+id/imageView4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/bluebackground" />
 
-        <EditText
-            android:id="@+id/zipText"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:layout_alignLeft="@+id/fullscreen_content_controls"
-            android:layout_alignRight="@+id/fullscreen_content_controls"
-            android:layout_below="@+id/fullscreen_content_controls"
-            android:background="@color/black_overlay"
-            android:ems="10"
-            android:hint="@string/zipHint"
-            android:textColor="#FFFFFF" />
-        
-        <EditText
-            android:id="@+id/aq_results"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:layout_alignBaseline="@+id/ag_results"
-            android:layout_alignBottom="@+id/ag_results"
-            android:layout_alignLeft="@+id/zipText"
-            android:background="@color/black_overlay"
-            android:ems="10"
-            android:hint="@string/resultHint"
-            android:inputType="textMultiLine"
-            android:textColor="#FFFFFF" >
-        </EditText>
-        
-        <EditText
-            android:id="@+id/ag_results"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/zipText"
-            android:layout_marginTop="24dp"
-            android:layout_toLeftOf="@+id/lookupButton"
-            android:background="@color/black_overlay"
-            android:ems="10"
-            android:hint="@string/resultHint"
-            android:inputType="textMultiLine"
-            android:textColor="#FFFFFF" />
+         <ImageView
+             android:id="@+id/ImageView1"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/textView1"
+             android:layout_marginTop="30dp"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/aq" />
+         
+         <ImageView
+             android:id="@+id/ImageView2"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/ImageView1"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/ag" />
 
-        <EditText
-            android:id="@+id/uv_results"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:layout_alignBaseline="@+id/ag_results"
-            android:layout_alignBottom="@+id/ag_results"
-            android:layout_alignRight="@+id/exposureButton"
-            android:background="@color/black_overlay"
-            android:ems="10"
-            android:hint="@string/resultHint"
-            android:inputType="textMultiLine"
-            android:textColor="#FFFFFF" />
-        
-        <ImageView
-            android:id="@+id/ImageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@string/aq" />
-        
-        <ImageView
-            android:id="@+id/ImageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/ImageView1"
-            android:src="@string/ag" />
-        
-       <ImageView
-            android:id="@+id/ImageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/ImageView2"
-            android:src="@string/uv" />
-        
-        <Button
-            android:id="@+id/exposureButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ImageView3"
-            android:layout_toRightOf="@+id/zipText"
-            android:text="View Exposure" />
+         <ImageView
+             android:id="@+id/ImageView3"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/ImageView2"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/uv" />
 
-        <Button
-            android:id="@+id/clothingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/zipText"
-            android:layout_below="@+id/ImageView3"
-            android:text="Clothing Options" />
-        
-    </RelativeLayout>
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/textView2"
+             android:layout_centerHorizontal="true"
+             android:layout_marginTop="25dp"
+             android:text="Current Conditions:"
+             android:textAppearance="?android:attr/textAppearanceLarge"
+             android:textColor="#FFFFFF" />
 
-</FrameLayout>
+         <ImageButton
+             android:id="@+id/lookupButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/textView2"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@+id/zipText"
+             android:src="@drawable/magglass" />
+
+
+
+</RelativeLayout>
