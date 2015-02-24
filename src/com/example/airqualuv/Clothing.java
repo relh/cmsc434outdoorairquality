@@ -20,6 +20,11 @@ public class Clothing extends Activity {
 		
 		setContentView(R.layout.activity_clothing);
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
 		findViewById(R.id.clothing1).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				clothing += 1;
@@ -43,6 +48,10 @@ public class Clothing extends Activity {
 		resultIntent.putExtra("clothing", clothing);
 		setResult(Activity.RESULT_OK, resultIntent);
 	    super.onBackPressed();
+<<<<<<< HEAD
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
 	}
 	
 }

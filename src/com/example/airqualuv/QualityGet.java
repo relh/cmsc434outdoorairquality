@@ -10,14 +10,35 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 import android.app.Notification;
 import android.app.NotificationManager;
+<<<<<<< HEAD:src/com/example/airqualuv/QualityGet.java
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+import android.app.Notification;
+import android.app.NotificationManager;
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+=======
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/src/com/example/airqualuv/QualityGet.java
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 import android.view.Window;
+<<<<<<< HEAD:src/com/example/airqualuv/QualityGet.java
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+import android.view.Window;
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+=======
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/src/com/example/airqualuv/QualityGet.java
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -93,9 +114,24 @@ public class QualityGet extends Activity {
 
 	View.OnClickListener clickedListener = new View.OnClickListener() {
 		@Override
+<<<<<<< HEAD
+<<<<<<< HEAD
+		public void onClick(View view) {
+
+			final TextView aqBox = (TextView) findViewById(R.id.aq_results);
+=======
 		public void onClick(final View view) {
 			
+<<<<<<< HEAD:src/com/example/airqualuv/QualityGet.java
 			/* final TextView aqBox = (TextView) findViewById(R.id.aq_results);
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+		public void onClick(final View view) {
+			
+=======
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/src/com/example/airqualuv/QualityGet.java
+			/* final TextView aqBox = (TextView) findViewById(R.id.aq_results);
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
 			final TextView agBox = (TextView) findViewById(R.id.ag_results);
 			final TextView uvBox = (TextView) findViewById(R.id.uv_results);
 			aqBox.setText("Loading...");
@@ -199,7 +235,18 @@ public class QualityGet extends Activity {
 			
 			result = result.replace("\"", "");
 			
+<<<<<<< HEAD:src/com/example/airqualuv/QualityGet.java
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 			setResult(result);
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+			setResult(result);
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+=======
+			setResult(result);
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/src/com/example/airqualuv/QualityGet.java
 			return result;
 		}
 		

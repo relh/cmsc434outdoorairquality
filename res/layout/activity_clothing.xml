@@ -47,11 +47,40 @@
             android:src="@drawable/tshirt" />
 
         <ImageView
+<<<<<<< HEAD:res/layout/activity_clothing.xml
+<<<<<<< HEAD
+<<<<<<< HEAD
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/imageView3"
+            android:src="@drawable/long_pants" />
+
+        <ImageView
+=======
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+=======
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/res/layout/activity_clothing.xml
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+<<<<<<< HEAD:res/layout/activity_clothing.xml
+<<<<<<< HEAD
+<<<<<<< HEAD
+            android:layout_below="@+id/imageView1"
+=======
             android:layout_below="@+id/clothing1"
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+            android:layout_below="@+id/clothing1"
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+=======
+            android:layout_below="@+id/clothing1"
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/res/layout/activity_clothing.xml
             android:src="@drawable/exp_outline" />
 
     </RelativeLayout>

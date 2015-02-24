@@ -48,6 +48,13 @@ public class ExposurePlot extends Activity
         }
         
         // Create a couple arrays of y-values to plot:
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Number[] series1Numbers = {1, 8, 5, 2, 7, 4};
+        Number[] series2Numbers = {4, 6, 3, 8, 2, 10};
+=======
+=======
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
         int aqVal = Integer.parseInt(aq)/10;
         float agVal = Float.parseFloat(ag);
         int uvVal = Integer.parseInt(uv);
@@ -55,6 +62,13 @@ public class ExposurePlot extends Activity
         Number[] aqNumbers = {aqVal - 3, aqVal - 2, aqVal - 1, aqVal};
         Number[] agNumbers = {agVal - 3, agVal - 2, agVal - 1, agVal};
         Number[] uvNumbers = {uvVal - 3, uvVal - 2, uvVal - 1, uvVal-uvMinus};
+<<<<<<< HEAD:src/com/example/airqualuv/ExposurePlot.java
+<<<<<<< HEAD
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+=======
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+=======
+>>>>>>> parent of 63e6234... 'final proto for May 9th':Code/workspace/AirQualUV/src/com/example/airqualuv/ExposurePlot.java
  
         // Turn the above arrays into XYSeries':
         XYSeries series1 = new SimpleXYSeries(Arrays.asList(aqNumbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Air Quality");

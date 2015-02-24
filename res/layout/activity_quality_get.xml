@@ -1,0 +1,237 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+<<<<<<< HEAD
+<<<<<<< HEAD
+    android:background="#0099cc"
+    tools:context=".QualityGet" >
+=======
+    android:background="#999999" >
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+
+         <Button
+             android:id="@+id/clothingButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentLeft="true"
+             android:layout_marginBottom="24dp"
+             android:layout_marginLeft="18dp"
+             android:background="#104BA9"
+             android:text="Clothing Options"
+             android:textColor="#FFFFFF" />
+
+         <Button
+             android:id="@+id/exposureButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBaseline="@+id/clothingButton"
+             android:layout_alignBottom="@+id/clothingButton"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="18dp"
+             android:background="#104BA9"
+             android:text="View Exposure"
+             android:textColor="#FFFFFF" />
+
+         <EditText
+             android:id="@+id/zipText"
+             android:layout_width="250dp"
+             android:layout_height="60dp"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentTop="true"
+             android:background="@color/black_overlay"
+             android:ems="10"
+             android:hint="@string/zipHint"
+             android:textColor="#FFFFFF"
+             android:textColorHint="#CCCCCC" >
+
+         </EditText>
+         
+         <TextView
+             android:id="@+id/textView2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/zipText"
+             android:layout_centerHorizontal="true"
+             android:text="Loading..."
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:visibility="invisible" />
+
+         <ImageView
+             android:id="@+id/imageView4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/bluebackground" />
+
+         <ImageView
+             android:id="@+id/ImageView1"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/textView1"
+             android:layout_marginTop="30dp"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/aq" />
+         
+         <ImageView
+             android:id="@+id/ImageView2"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/ImageView1"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/ag" />
+
+         <ImageView
+             android:id="@+id/ImageView3"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/ImageView2"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/uv" />
+
+<<<<<<< HEAD
+        <Button
+            android:id="@+id/clothingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/zipText"
+            android:layout_below="@+id/ImageView3"
+            android:text="Clothing Options" />
+        
+    </RelativeLayout>
+=======
+    android:background="#999999" >
+
+         <Button
+             android:id="@+id/clothingButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentLeft="true"
+             android:layout_marginBottom="24dp"
+             android:layout_marginLeft="18dp"
+             android:background="#104BA9"
+             android:text="Clothing Options"
+             android:textColor="#FFFFFF" />
+
+         <Button
+             android:id="@+id/exposureButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBaseline="@+id/clothingButton"
+             android:layout_alignBottom="@+id/clothingButton"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="18dp"
+             android:background="#104BA9"
+             android:text="View Exposure"
+             android:textColor="#FFFFFF" />
+
+         <EditText
+             android:id="@+id/zipText"
+             android:layout_width="250dp"
+             android:layout_height="60dp"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentTop="true"
+             android:background="@color/black_overlay"
+             android:ems="10"
+             android:hint="@string/zipHint"
+             android:textColor="#FFFFFF"
+             android:textColorHint="#CCCCCC" >
+
+         </EditText>
+         
+         <TextView
+             android:id="@+id/textView2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/zipText"
+             android:layout_centerHorizontal="true"
+             android:text="Loading..."
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:visibility="invisible" />
+
+         <ImageView
+             android:id="@+id/imageView4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/bluebackground" />
+
+         <ImageView
+             android:id="@+id/ImageView1"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/textView1"
+             android:layout_marginTop="30dp"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/aq" />
+         
+         <ImageView
+             android:id="@+id/ImageView2"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/ImageView1"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/ag" />
+
+         <ImageView
+             android:id="@+id/ImageView3"
+             android:layout_width="wrap_content"
+             android:layout_height="75dp"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@+id/ImageView2"
+             android:paddingLeft="5dp"
+             android:paddingRight="5dp"
+             android:src="@string/uv" />
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/textView2"
+             android:layout_centerHorizontal="true"
+             android:layout_marginTop="25dp"
+             android:text="Current Conditions:"
+             android:textAppearance="?android:attr/textAppearanceLarge"
+             android:textColor="#FFFFFF" />
+
+=======
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/textView2"
+             android:layout_centerHorizontal="true"
+             android:layout_marginTop="25dp"
+             android:text="Current Conditions:"
+             android:textAppearance="?android:attr/textAppearanceLarge"
+             android:textColor="#FFFFFF" />
+
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
+         <ImageButton
+             android:id="@+id/lookupButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/textView2"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@+id/zipText"
+             android:src="@drawable/magglass" />
+
+
+<<<<<<< HEAD
+>>>>>>> parent of 63e6234... 'final proto for May 9th'
+
+</FrameLayout>
+=======
+
+</RelativeLayout>
+>>>>>>> 2e8b1d4521d29201761f09fb70f8c5b4c78ec620
